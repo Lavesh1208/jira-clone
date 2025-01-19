@@ -85,7 +85,7 @@ const EditWorkspaceForm = ({
 	};
 
 	const handleResetInviteCode = async () => {
-		const ok = await confirmDelete();
+		const ok = await confirmReset();
 
 		if (!ok) return;
 
