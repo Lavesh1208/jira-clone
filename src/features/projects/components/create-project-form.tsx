@@ -25,11 +25,11 @@ import { z } from "zod";
 import { useCreateProject } from "../api/use-create-project";
 import { createProjectsSchema } from "../schemas";
 
-interface CreateWorkspaceFormProps {
+interface CreateProjectFormProps {
 	onCancel?: () => void;
 }
 
-const CreateProjectForm = ({ onCancel }: CreateWorkspaceFormProps) => {
+const CreateProjectForm = ({ onCancel }: CreateProjectFormProps) => {
 	const router = useRouter();
 	const workspaceId = useWorkspaceId();
 	const { mutate, isPending } = useCreateProject();
