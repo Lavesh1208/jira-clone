@@ -18,6 +18,7 @@ import { cn } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ImageIcon } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useRef } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -29,6 +30,7 @@ interface CreateWorkspaceFormProps {
 }
 
 const CreateProjectForm = ({ onCancel }: CreateWorkspaceFormProps) => {
+	const router = useRouter();
 	const workspaceId = useWorkspaceId();
 	const { mutate, isPending } = useCreateProject();
 	const inputRef = useRef<HTMLInputElement>(null);
@@ -50,8 +52,9 @@ const CreateProjectForm = ({ onCancel }: CreateWorkspaceFormProps) => {
 		mutate(
 			{ form: finalValues },
 			{
-				onSuccess: ({}) => {
+				onSuccess: ({ data }) => {
 					form.reset();
+					router.push(`/workspaces/${workspaceId}/projects/${data.$id}`);
 				},
 			}
 		);
@@ -86,7 +89,7 @@ const CreateProjectForm = ({ onCancel }: CreateWorkspaceFormProps) => {
 									<FormItem>
 										<FormLabel>Project Name</FormLabel>
 										<FormControl>
-											<Input {...field} placeholder="Enter workspace name" />
+											<Input {...field} placeholder="Enter project name" />
 										</FormControl>
 										<FormMessage />
 									</FormItem>
