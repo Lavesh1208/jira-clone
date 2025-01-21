@@ -38,11 +38,11 @@ export const TaskActions = ({ id, projectId, children }: TaskActionsProps) => {
 	};
 
 	const onOpenTask = async () => {
-		router.push(`/workspaces/${projectId}/tasks/${id}`);
+		router.push(`/workspaces/${workspaceId}/tasks/${id}`);
 	};
 
 	const onOpenProject = async () => {
-		router.push(`/workspaces/${workspaceId}/projects/${projectId}`);
+		console.log(`/workspaces/${workspaceId}/projects/${projectId}`);
 	};
 
 	return (
