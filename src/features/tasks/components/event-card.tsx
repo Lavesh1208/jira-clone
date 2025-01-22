@@ -18,7 +18,7 @@ const statusColorMap: Record<TaskStatus, string> = {
 	[TaskStatus.TODO]: "border-l-red-400",
 	[TaskStatus.IN_PROGRESS]: "border-l-yellow-400",
 	[TaskStatus.IN_REVIEW]: "border-l-blue-400",
-	[TaskStatus.DONE]: "border-l-emrald-400",
+	[TaskStatus.DONE]: "border-l-emerald-400",
 	[TaskStatus.BACKLOG]: "border-l-pink-400",
 };
 
