@@ -25,7 +25,6 @@ import ProjectAvatar from "@/features/projects/components/project-avatar";
 import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
 import { cn } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { useCreateTask } from "../api/use-create-task";
@@ -50,7 +49,6 @@ const CreateTaskForm = ({
 	projectOptions,
 	memberOptions,
 }: CreateTaskFormProps) => {
-	const router = useRouter();
 	const workspaceId = useWorkspaceId();
 	const { mutate, isPending } = useCreateTask();
 
