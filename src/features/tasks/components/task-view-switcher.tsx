@@ -3,6 +3,7 @@
 import { DottedSeparator } from "@/components/doted-separator";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useProjectId } from "@/features/projects/hooks/use-project-id";
 import { useWorkspaceId } from "@/features/workspaces/hooks/use-workspace-id";
 import { Loader, PlusIcon } from "lucide-react";
 import { useQueryState } from "nuqs";
@@ -32,12 +33,13 @@ export const TaskViewSwitcher = ({
 	});
 
 	const workspaceId = useWorkspaceId();
+	const paramProjectId = useProjectId();
 	const { open } = useCreateTaskModal();
 	const { mutate: bulkUpdate } = useBulkUpdateTask();
 
 	const { data: tasks, isLoading: isLoadingTasks } = useGetTasks({
 		workspaceId,
-		projectId,
+		projectId: paramProjectId ?? projectId,
 		status,
 		assigneeId,
 		dueDate,

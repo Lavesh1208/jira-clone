@@ -131,10 +131,7 @@ const EditWorkspaceForm = ({
 						onClick={
 							onCancel
 								? onCancel
-								: () =>
-										router.push(
-											`/workspaces/${initialValues.workspaceId}/${initialValues.$id}`
-										)
+								: () => router.push(`/workspaces/${initialValues.$id}`)
 						}
 					>
 						<ArrowLeftIcon className="size-4 mr-2" />
